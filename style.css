@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
 *,*::before, *::after{
     margin: 0;
     padding: 0;
@@ -14,7 +13,7 @@ html, body{
     min-height: 100vh;
     width: 100%;
     overflow-x: hidden;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
     background-color:#a099ff;
     background-image: 
     radial-gradient(at 83% 67%, rgb(152, 231, 156) 0, transparent 58%), 
@@ -29,6 +28,7 @@ html, body{
 .wrapper, .container{
     width: 100%;
     height: 100vh;
+    min-height: 500px;
     display: none;
     justify-content: center;
     align-items: center;
@@ -121,8 +121,12 @@ html, body{
 }
 .header{
     color: white;
-    font-size: clamp(1rem, 3vw, 2rem);
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    font-weight: bold;
     user-select: none;
+    position: absolute;
+    top: 2em;
+    text-shadow: 0px 0px 10px #ff0202;
 }
 
 input[type="text"]{
@@ -130,10 +134,14 @@ input[type="text"]{
     padding: 10px;
     margin: 10px 0;
     border: none;
-    background-color: #444;
+    background-color: rgba(1,1,1,0.7);
+    backdrop-filter: blur(25px);
     color: #fff;
     border-radius: 5px;
     outline: none;
+    height: 3rem;
+    font-size: 1.5rem;
+    box-shadow: inset 0px 2px 4px 2px black;
 }
 form{
     text-align: center;
