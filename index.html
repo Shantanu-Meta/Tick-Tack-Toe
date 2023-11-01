@@ -4,9 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
-    <title>Tick-tAck-Toe</title>
+    <title>Tick-Tac-Toe</title>
 </head>
 <body>
+    <div class="container active">
+        <h1 class="header">Tic-Tac-Toe</h1>
+        <form id="player-names-form">
+            <input type="text" id="player1" placeholder="Player 1 Name" required>
+            <input type="text" id="player2" placeholder="Player 2 Name" required>
+            <button type="button" onclick="startGame()">Start Game</button>
+        </form>
+    </div>
+
     <div class="wrapper">
         <div class="player-show">
             <p>Your turn : <span player-track></span></p>

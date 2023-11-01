@@ -1,3 +1,9 @@
+let container = document.querySelector(".container"); 
+let wrapper = document.querySelector(".wrapper"); 
+
+let player1 = document.querySelector("#player1");
+let player2 = document.querySelector("#player2");
+let p1, p2; 
 let status = 0; 
 //X ya fir O
 let currPlayer = document.querySelector("[player-track]"); 
@@ -32,9 +38,23 @@ const winningPos = [
     [2,4,6]
 ]
 
+function startGame(){
+    if(player1.value!="" && player2.value!=""){
+        console.log("first");
+        p1 = player1.value; 
+        p2 = player2.value; 
+        initGame(); 
+        container.classList.remove("active"); 
+        wrapper.classList.add("active"); 
+        return;
+    }else{
+        return; 
+    }
+}
+
 //track curr player
 let currentPlayer = "X"; 
-initGame();     // initialize game at very beggining.
+
 
 // event Listner for every box.
 boxes.forEach((box, index) => {
@@ -108,7 +128,7 @@ function checkWin(){
                 boxes[triplate[1]].classList.add("bg-green");
                 boxes[triplate[2]].classList.add("bg-green");
                 currPlayerDiv.classList.remove("activeBlock"); 
-                wonPlayer.innerText = `${currentPlayer}`; 
+                changeWinner();
                 wonPlayerDiv.classList.add("activeBlock"); 
                 newGame.classList.add("active"); 
                 status = "1"; 
@@ -134,5 +154,15 @@ function checkWin(){
 }
 
 function changePlayer(){
-    currPlayer.innerText = `${currentPlayer}`;
+    if(currentPlayer === "X")
+        currPlayer.innerText = `${p1}`;
+    else
+        currPlayer.innerText = `${p2}`;
+}
+
+function changeWinner(){
+    if(currentPlayer === "X")
+        wonPlayer.innerText = `${p1}`; 
+    else
+        wonPlayer.innerText = `${p2}`;
 }
