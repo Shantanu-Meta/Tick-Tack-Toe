@@ -24,6 +24,10 @@ html, body{
     radial-gradient(at 74% 89%, hsla(30,98%,65%,1) 0, transparent 51%), 
     radial-gradient(at 53% 75%, hsla(174,94%,68%,1) 0, transparent 45%);
 }
+a{
+    text-decoration: none;
+    color: black;
+}
 
 .wrapper, .container{
     width: 100%;
@@ -65,16 +69,17 @@ html, body{
 } 
 
 .grid{
-    width: clamp(10rem, 90%, 20rem); 
+    width: clamp(10rem, 90%, 20rem);
     aspect-ratio: 1/1;
     border-radius: 5px;
     padding: 2rem;
     background-color: rgba(2, 2, 2, 0.5);
-    border: 1px solid white;
+    border: 2px solid #00ffe1;
     display: grid;
     grid-template-columns: repeat(3,1fr);
     grid-template-rows: repeat(3,1fr);
     user-select: none;
+    box-shadow: rgb(255 92 0 / 25%) 0px 0px 60px 12px, rgb(0 192 255 / 30%) 0px 0px 16px 8px;
 }
 
 .box{
@@ -88,6 +93,7 @@ html, body{
     justify-content: center;
     align-items: center;
     user-select: none;
+    text-shadow: 0 0 6px #ff6e00;
 }
 .activeBlock{
     display: block;
@@ -97,11 +103,11 @@ html, body{
 }
 
 .border-right{
-    border-right: 2px solid white;
+    border-right: 2px solid #00ffe1;
 }
 
 .border-bottom{
-    border-bottom: 2px solid white;
+    border-bottom: 2px solid #00ffe1;
 }
 
 .big{
@@ -147,16 +153,28 @@ form{
     text-align: center;
 }
 
-button {
-    background-color: #428bca;
+.button-91 {
     color: #fff;
-    border: none;
-    padding: 10px 20px;
-    font-size: 18px;
-    border-radius: 5px;
+    padding: 15px 25px;
+    background-color: #38D2D2;
+    background-image: radial-gradient(100% 100% at 100% 0, #5adaff 0, #5468ff 100%);
+    box-shadow: rgba(45, 35, 66, .4) 0 2px 4px,rgba(45, 35, 66, .3) 0 7px 13px -3px,rgba(58, 65, 111, .5) 0 -3px 0 inset;
+    border-radius: 14px;
+    font-weight: bold;
+    font-size: 16px;
+  
+    border: 0;
+  
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+  
     cursor: pointer;
 }
 
-button:hover {
-    background-color: #357ebd;
+.footer{
+    position: absolute;
+    bottom: 0.5rem;
+    font-size: clamp(1rem, 3vw, 1.5rem);
+    color: white;
 }
