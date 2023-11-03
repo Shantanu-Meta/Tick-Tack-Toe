@@ -98,7 +98,6 @@ function mark(index){
 
         let status = checkWin(); 
         if(status === true){ // eaither won or draw. 
-            removeEL(); 
             return; 
         }
         if(currentPlayer === "X"){
@@ -117,7 +116,7 @@ function mark(index){
 // ya to jitega (true) ya fir draw (true) or can still continue
 function checkWin(){
     let haveEmpty = false; 
-    winningPos.forEach((triplate) =>{
+    for(let triplate of winningPos){
         if(gameGrid[triplate[0]]!== "" && gameGrid[triplate[1]]!=="" && 
         gameGrid[triplate[2]]!==""){
             let mark1 = gameGrid[triplate[0]]; 
@@ -131,13 +130,13 @@ function checkWin(){
                 changeWinner();
                 wonPlayerDiv.classList.add("activeBlock"); 
                 newGame.classList.add("active"); 
-                status = "1"; 
+                status = 1; 
                 return true; 
             }
         }else{
             haveEmpty = true; 
         }
-    })
+    }
 
     // draw
     if(haveEmpty===false){
