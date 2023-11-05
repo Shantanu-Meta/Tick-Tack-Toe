@@ -131,6 +131,8 @@ function checkWin(){
                 wonPlayerDiv.classList.add("activeBlock"); 
                 newGame.classList.add("active"); 
                 status = 1; 
+                start(); 
+                stop(); 
                 return true; 
             }
         }else{
@@ -165,3 +167,14 @@ function changeWinner(){
     else
         wonPlayer.innerText = `${p2}`;
 }
+
+function start(){
+    confetti.start(); 
+}
+
+function stop(){
+   setTimeout(()=>{
+    confetti.stop(); 
+   }, 5000)
+}
+
