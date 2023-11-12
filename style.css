@@ -59,14 +59,20 @@ a{
     display: none;
 }
 
-.btn{
-    cursor: pointer;
+.buttons{
     position: absolute;
     bottom: 10px;
     left: 50%;
     transform: translateX(-50%);
+    width: 100%;
     display: none;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
 } 
+.btn{
+    cursor: pointer;
+}
 
 .grid{
     width: clamp(10rem, 90%, 20rem);

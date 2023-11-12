@@ -19,6 +19,11 @@ let drawDiv = document.querySelector(".draw");
 // New game button. 
 const newGame = document.querySelector('.btn'); 
 
+// resatrt gaem
+const restart = document.querySelector(".reload"); 
+
+// buttons div
+const btnDiv = document.querySelector(".buttons")
 
 //Total grid access. 
 let boxes = document.querySelectorAll('.box'); 
@@ -37,6 +42,8 @@ const winningPos = [
     [0,4,8],
     [2,4,6]
 ]
+
+
 
 function startGame(){
     if(player1.value!="" && player2.value!=""){
@@ -68,13 +75,14 @@ boxes.forEach((box, index) => {
 
 // EL for new game restart
 newGame.addEventListener('click', initGame); 
+restart.addEventListener('click', restartGame); 
 
 // works on very begin AND click on "New GAme " button
-function initGame(){
+function initGame(){  
     status = 0;
     currentPlayer = "X"; 
     wonPlayerDiv.classList.remove("activeBlock"); 
-    newGame.classList.remove("active"); 
+    btnDiv.classList.remove("active"); 
     drawDiv.classList.remove("activeBlock"); 
     changePlayer(); 
     currPlayerDiv.classList.add("activeBlock");
@@ -87,6 +95,11 @@ function initGame(){
         }
         boxes[index].style.cursor = "pointer"; 
     })
+}
+
+function restartGame(){
+    initGame(); 
+    location.reload(); 
 }
 
 // for mark X or O in box. 
@@ -128,8 +141,9 @@ function checkWin(){
                 boxes[triplate[2]].classList.add("bg-green");
                 currPlayerDiv.classList.remove("activeBlock"); 
                 changeWinner();
-                wonPlayerDiv.classList.add("activeBlock"); 
-                newGame.classList.add("active"); 
+                wonPlayerDiv.classList.add("activeBlock");
+                btnDiv.classList.add("active"); 
+                // newGame.classList.add("active"); 
                 status = 1; 
                 start(); 
                 stop(); 
@@ -144,7 +158,8 @@ function checkWin(){
     if(haveEmpty===false){
         currPlayerDiv.classList.remove("activeBlock"); 
         drawDiv.classList.add("activeBlock"); 
-        newGame.classList.add("active");
+        btnDiv.classList.add("active");
+        // newGame.classList.add("active");
         status = 1; 
         return true; 
     } 
@@ -168,6 +183,7 @@ function changeWinner(){
         wonPlayer.innerText = `${p2}`;
 }
 
+// confetti handle
 function start(){
     confetti.start(); 
 }
@@ -175,6 +191,6 @@ function start(){
 function stop(){
    setTimeout(()=>{
     confetti.stop(); 
-   }, 5000)
+   }, 3000)
 }
 
